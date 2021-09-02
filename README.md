@@ -9,8 +9,9 @@
 </tr>
 
 <tr>
-<td> Fork </td>
-<td> Fork creates a new process by duplicating the existing process from which it is called. </td>
-<td><a href="https://github.com/Udhayamoorthi369/Advanced-C/tree/main/FILES"> code </a></td>
-</tr>
+    <td> File </td>
+    <td> A file is an abstract data type. For defining a file properly, we need to consider the operations that can be performed on files. The operating system can provide system calls to create, write, read, reposition, delete, and truncate files.
+    </td>
+    <td><ahref="https://github.com/Udhayamoorthi369/Advanced-C/tree/main/FILES"> code </a></td>
+    </tr>
 
