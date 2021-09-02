@@ -3,7 +3,7 @@
 
 <table style = "width : 80%" border = "1px solid black">
   <tr>
-    <tr>Folder</th>
+    <th>Folder</th>
     <th>Description</th>
     <th>Link</th>
     </tr>
