@@ -1,49 +1,34 @@
-// C program for implementation of Bubble sort
-#include <stdio.h>
 
-void swap(int *xp, int *yp) /*swapping */
-{
-	int temp = *xp;
-	*xp = *yp;
-	*yp = temp;
-}
+// program odf sorting using bubble sort*/
+// Author udhayamoorthi
+// the bubble sort proceeds by inserting each ele at the proper place in a sorted list.
 
-// A function to implement bubble sort
-void bubbleSort(int arr[], int n){
-    int i, j;
-    for (i = 0; i < n-1; i++){
-   
-	// Last i elements are already in place 
-	for (j = 0; j < n-i-1; j++) {
-	   if (arr[j] > arr[j+1]){
-	       swap(&arr[j], &arr[j+1]); 
-	       
-	   }
-	   //if (swapped == 0){
-	     //  break;
-	   //}
-	}
-		
-  }
-}
-
-/* Function to print an array */
-void printArray(int arr[], int size)
-{
-	int i;
-	for (i=0; i < size; i++){
-	    printf("%d ", arr[i]);
-	}
-}
-
-// Driver program to test above functions
+#include<stdio.h>
+#define MAX 100
 int main()
 {
-	int arr[] = {64, 34, 25, 12, 22, 11, 90};
-	int n = sizeof(arr)/sizeof(arr[0]);
-	bubbleSort(arr, n);
-	printf("Sorted array: \n");
-	printArray(arr, n);
-	return 0;
-}
+	int arr[MAX],i,k,j,n;
+	
+	printf("Enter the num of ele:");
+	scanf("%d",&n);
 
+	/*insertion sort*/
+	for(i=0;i<n;i++)
+	{
+		printf("enter ele %d:",i+1);
+		scanf("%d",&arr[i]);
+	}
+	for(i=1;i<n;i++)
+	{
+		k=arr[i];/* k is to be inserted at proper place*/
+		for(j=i-1;j>=0 && k<arr[j];j--)
+
+			arr[j+1]=arr[j];
+		arr[j+1]=k;
+	}
+	printf("sorted list is:\n");
+	for(i=0;i<n;i++)
+		printf("%d",arr[i]);
+
+
+}/*end of line*/

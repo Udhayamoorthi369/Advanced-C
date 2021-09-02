@@ -1,3 +1,8 @@
+
+// program odf sorting using insertion sort*/
+// Author udhayamoorthi
+// the insertion sort proceeds by inserting each ele at the proper place in a sorted list.
+
 #include<stdio.h>
 #define MAX 100
 int main()
@@ -6,6 +11,8 @@ int main()
 	
 	printf("Enter the num of ele:");
 	scanf("%d",&n);
+
+	/*insertion sort*/
 	for(i=0;i<n;i++)
 	{
 		printf("enter ele %d:",i+1);
@@ -13,7 +20,7 @@ int main()
 	}
 	for(i=1;i<n;i++)
 	{
-		k=arr[i];
+		k=arr[i];/* k is to be inserted at proper place*/
 		for(j=i-1;j>=0 && k<arr[j];j--)
 
 			arr[j+1]=arr[j];
@@ -24,4 +31,4 @@ int main()
 		printf("%d",arr[i]);
 
 
-}
+}/*end of line*/
