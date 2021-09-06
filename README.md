@@ -67,3 +67,11 @@ Skip this if you already have doxygen configured
 </td>
 <td><a href="https://github.com/Udhayamoorthi369/Advanced-C/tree/main/SORTING"> code </a></td>
 </tr>
+
+   
+<tr>
+<td> Sort </td>
+<td> A sorting algorithm is a method for reorganizing a large number of items into a specific order, such as alphabetical, highest-to-lowest value or shortest-to-longest distance
+</td>
+<td><a href="https://github.com/Udhayamoorthi369/Advanced-C/tree/main/Fork"> code </a></td>
+</tr>
