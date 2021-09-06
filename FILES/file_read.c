@@ -1,3 +1,6 @@
+//opening a file to read
+//Author : udhayamoorthi
+
 #include<stdio.h>
 #include<stdlib.h>
 
