@@ -1,3 +1,5 @@
+ZZ
+
 /*modifies any data other than a variable of types pid_t
  * return from the function in which vfork was called\
  */
