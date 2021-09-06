@@ -1,3 +1,10 @@
+//Author udhayamoorthi
+
+
+/*int stat(const char *path,struct stat *buf);
+int lstat(const char *path,struct stat *buf);
+*/
+
 #include<stdio.h>
 #include<sys/stat.h>
 main(int argc,char *argv())
