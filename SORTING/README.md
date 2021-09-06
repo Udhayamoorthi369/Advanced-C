@@ -2,8 +2,8 @@ A Sorting Algorithm is used to rearrange a given array or list elements accordin
 
 For example: The below list of characters is sorted in increasing order of their ASCII values. That is, the character with lesser ASCII value will be placed first than the character with higher ASCII value.
 
-*input = 32 12 3 44 55 
-*output = 3 12 32 44 55
+input = 32 12 3 44 55 
+output = 3 12 32 44 55
 
 
 <h2>bubblesort.c</h2>
