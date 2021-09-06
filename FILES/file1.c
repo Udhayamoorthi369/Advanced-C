@@ -1,3 +1,7 @@
+//writing a sentence to a  file
+// author udhayamoorthi
+
+
 #include<stdio.h>
 #include<stdlib.h>
 
