@@ -1,3 +1,6 @@
+To create a new process, in UNIX, the fork() system call is used. Fork() creates a new context based on the context of the calling process. The fork() call is unusual in that it returns twice: It returns in both the process calling fork() and in the newly created process. The child process returns zero and the parent process returns a number greater then zero.
+
+
 <h2>fork0.c</h2>
 This file contains the example for fputc() function. --<a href="https://github.com/Udhayamoorthi369/Advanced-C/blob/main/Fork/fork0.c">code</a>
 
