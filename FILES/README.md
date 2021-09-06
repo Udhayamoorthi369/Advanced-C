@@ -1,4 +1,4 @@
-###File handling in C enables us to create, update, read, and delete the files stored on the local file system through our C program. The following operations can be performed on a file.
+File handling in C enables us to create, update, read, and delete the files stored on the local file system through our C program. The following operations can be performed on a file.
 
 Creation of the new file
 Opening an existing file
