@@ -82,3 +82,18 @@ Skip this if you already have doxygen configured
 </td>
 <td><a href="https://github.com/Udhayamoorthi369/Advanced-C/tree/main/File_system"> code </a></td>
 </tr>
+
+  
+ <tr>
+<td> atExit </td>
+<td> A sorting algorithm is a method for reorganizing a large number of items into a specific order, such as alphabetical, highest-to-lowest value or shortest-to-longest distance
+</td>
+<td><a href="https://github.com/Udhayamoorthi369/Advanced-C/tree/main/atEXIT"> code </a></td>
+</tr>
+   
+  <tr>
+<td> systemcall </td>
+<td> A sorting algorithm is a method for reorganizing a large number of items into a specific order, such as alphabetical, highest-to-lowest value or shortest-to-longest distance
+</td>
+<td><a href="https://github.com/Udhayamoorthi369/Advanced-C/tree/main/systemcalls"> code </a></td>
+</tr>
