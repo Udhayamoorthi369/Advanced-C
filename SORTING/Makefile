@@ -1,13 +1,13 @@
+CC= gcc 
 
-output: BubbleSort.o InsertionSort.o
-	g++ BubbleSort.o InsertionSort.o -o output
-	
-BubbleSort.o: BubbleSort.c
-	g++ -c BubbleSort.c 
+FLAGS = -G -O0 -o
 
-InsertionSort.o: InsertionSort.c
-	g++ -c InsertionSort.c
+a.out : bubblesort1 insertionsort
+
+%.O : %.c
+
+$(CC) $(FLAGS) %^
 
 clean:
 
-	rm *.o output
+rm -rf *.o out
