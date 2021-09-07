@@ -1,16 +1,13 @@
-all: output
+CC= gcc 
 
-output: main.o file1.0 file_read.o
-        g++ main.o file1.o file_read.o output
+FLAGS = -G -O0 -o
 
-main.o: main.c
-        g++ -c main.c
+a.out : file1 file_read
 
-file1.o: file1.c
-         g++ -c file1.c
+%.O : %.c
 
-file_read.o: file_read.c
-          g++ -c file_read.c
+$(CC) $(FLAGS) %^
 
-clean: 
-       rm -rf *o output
+clean:
+
+rm -rf *.o out
