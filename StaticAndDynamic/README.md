@@ -29,17 +29,20 @@ To begin with, create a header file add.h and insert the add function signature 
 int add(int, int);
 Now, create another source code file viz addDemo.c, and insert the following code into that.
 
-'''c
+```c
 #include <add.h>
 #include <stdio.h>
  
 int main()
 {
-  int x= 10, y = 20;
-  printf("\n%d + %d = %d", x, y, add(x, y));
+  int a= 10, b= 20;
+  printf("\n%d + %d = %d", x, y, add(a, b));
   return 0;
 }
-'''
+
+
+```
+
 Create one more file named add.c that contains the code of add module. Insert the following code into add.c
 
 ```c
