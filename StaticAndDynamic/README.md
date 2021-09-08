@@ -29,7 +29,7 @@ To begin with, create a header file add.h and insert the add function signature 
 int add(int, int);
 Now, create another source code file viz addDemo.c, and insert the following code into that.
 
-'''
+'''c
 #include <add.h>
 #include <stdio.h>
  
@@ -42,23 +42,15 @@ int main()
 '''
 Create one more file named add.c that contains the code of add module. Insert the following code into add.c
 
-'''int add(int X, int Y)
-{
-  return(X + Y);
-}
-'''
 ```c
-#include "add.h"
+
 
 int add(int a, int b)
 {
     return a + b;
 }
 
-int sub(int a, int b)
-{
-    return a - b;
-}
+
 ```
 After having created above files, you can start building the executable as follows:
 
@@ -88,10 +80,13 @@ int add(int, int); //adds two integers
 int sub(int, int); //subtracts second integer from first
 Next, create a file sub.c, and add the following code to it. We have add.c already created.
 
-int sub(int X, int Y)
+```c
+
+int sub(int a, int b)
 {
-  return (X - Y);
+    return a - b;
 }
+```
 Now compile sub.c as follows in order to get the binary object file.
 ## [root@host ~]# gcc -c sub.c
 Above command will produce binary object file sub.o.
