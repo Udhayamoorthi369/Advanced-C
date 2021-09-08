@@ -7,7 +7,7 @@ What is Static Linking?
 How to Create Static Libraries?
 What is Dynamic Linking?
 How to Create and Use Shared Libraries?
-References
+
 
 #### Static and Dynamic Linking of Libraries
 Static and dynamic linking are two processes of collecting and combining multiple object files in order to create a single executable. Linking can be performed at both compile time, when the source code is translated into machine code and load time, when the program is loaded into memory and executed by the loader, and even at run time, by application programs. And, it is performed by programs called linkers. Linkers are also called link editors. Linking is performed as the last step in compiling a program. In this tutorial static and dynamic linking with C modules will be discussed.
