@@ -496,7 +496,7 @@ int main(void)
 #endif
   char c = -10;
   // Print the string
-   printf("\n The Geek Stuff [%d]\n", c);
+   printf("\n xtream silica [%d]\n", c);
    return 0;
 }
 ```
@@ -523,7 +523,7 @@ int main(void)
 {
   char c;
   // Print the string
-   printf("\n The Geek Stuff [%d]\n", c);
+   printf("\n Xtrem silica[%d]\n", c);
    return 0;
 }
 ```
