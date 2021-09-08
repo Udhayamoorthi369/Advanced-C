@@ -45,7 +45,7 @@ int main()
 
 Create one more file named add.c that contains the code of add module. Insert the following code into add.c
 
-```c
+```
 
 
 int add(int a, int b)
