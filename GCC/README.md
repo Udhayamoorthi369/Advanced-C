@@ -303,3 +303,26 @@ and rarely used.
 The second option describes dynamic linking. It is a little bit slower but much
 more flexible and is the standard way to ship a library.
 
+### GCC Compiler Options
+An Example C Code
+The following basic C code (main.c) will used in this article :
+```c
+#include<stdio.h>
+
+int main(void)
+{
+   printf("\n xtreme silica\n");
+   return 0;
+}
+```
+GCC Compiler Options
+1. Specify the Output Executable Name
+In its most basic form, gcc compiler can be used as :
+
+## gcc main.c
+
+The above command executes the complete compilation process and outputs an executable with name a.out.
+
+Use option -o, as shown below, to specify the output file name for the executable.
+
+## gcc main.c -o main
