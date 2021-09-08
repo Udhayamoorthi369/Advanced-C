@@ -505,7 +505,9 @@ $ gcc -Wall -DMY_MACRO main.c -o main
 $ ./main
  Macro defined 
 
- xtreme silica [-10] ```
+ xtreme silica [-10]
+ 
+ ```
 The print related to macro in the output confirms that the macro was defined.
 
 14. Convert warnings into errors with -Werror option
@@ -521,7 +523,8 @@ int main(void)
   // Print the string
    printf("\n The Geek Stuff [%d]\n", c);
    return 0;
-}```
+}
+```
 
 The compilation of above code should generate warning related to undefined variable c and this should get converted into error by using -Werror option.
 ```
