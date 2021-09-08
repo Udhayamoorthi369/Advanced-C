@@ -458,7 +458,7 @@ int main(void)
    }
    ```
    When the above code is compiled with funsigned-char option, here is the output :
-   ```
+  
 
 $ gcc -Wall -funsigned-char main.c -o main
 $ ./main
@@ -476,7 +476,8 @@ Here is an example :
 $ gcc -Wall -fsigned-char main.c -o main
 $ ./main
 
-xtream silica [-10]```
+xtream silica [-10]
+```
 The output confirms that char was treated as signed.
 
 13. Use compile time macros using -D option
