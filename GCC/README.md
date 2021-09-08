@@ -335,7 +335,7 @@ This option enables all the warnings in GCC.
 int main(void)
 {
    int i;
-   printf("\n The Geek Stuff [%d]\n", i);
+   printf("\n Xtream silica [%d]\n", i);
    return 0;
 }
 ```
@@ -417,3 +417,139 @@ gcc version 4.6.3 (Ubuntu/Linaro 4.6.3-1ubuntu5)
 ...
 ...
 So we see that detailed information was produced in the output.
+
+10. Enable the support of ISO C89 programs using -ansi option
+Through -ansi option the support for ISO C89 style is enabled.
+
+Consider the following code :
+```c
+#include<stdio.h>
+
+int main(void)
+{
+  // Print the string
+   printf("\n Xtream silica\n");
+   return 0;
+}
+```
+If the above code is compiled with -ansi option then gcc would produce an error because the C++ comments are not allowed in ISO C89 style.
+
+Here is the output :
+```
+$ gcc -Wall -ansi main.c -o main
+main.c: In function â€˜mainâ€™:
+main.c:5:3: error: expected expression before â€˜/â€™ token
+```
+So we see that gcc threw an error related to commenting style.
+
+11. Interpret char as unsigned char using -funsigned-char option
+Through this option, the char type is treated as unsigned type.
+
+Here is an example :
+```c
+#include<stdio.h>
+
+int main(void)
+{
+  char c = -10;
+  // Print the string
+   printf("\n xtream silica [%d]\n", c);
+   return 0;
+   }
+   ```
+   When the above code is compiled with funsigned-char option, here is the output :
+   ```
+
+$ gcc -Wall -funsigned-char main.c -o main
+$ ./main
+
+ xtream silica [246]
+    ```
+
+So we see that the char was indeed treated as unsigned.
+
+12. Interpret char as signed char using -fsigned-char option
+This is the opposite of what we discussed in (12) above. Using this flag, the char variables are treated as signed.
+
+Here is an example :
+```
+$ gcc -Wall -fsigned-char main.c -o main
+$ ./main
+
+xtream silica [-10]
+```
+The output confirms that char was treated as signed.
+
+13. Use compile time macros using -D option
+The compiler option D can be used to define compile time macros in code.
+
+Here is an example :
+```c
+#include<stdio.h>
+
+int main(void)
+{
+#ifdef MY_MACRO
+  printf("\n Macro defined \n");
+#endif
+  char c = -10;
+  // Print the string
+   printf("\n The Geek Stuff [%d]\n", c);
+   return 0;
+}
+```
+
+The compiler option -D can be used to define the macro MY_MACRO from command line.
+```
+$ gcc -Wall -DMY_MACRO main.c -o main
+$ ./main
+ Macro defined 
+```
+
+ xtreme silica [-10]
+The print related to macro in the output confirms that the macro was defined.
+
+14. Convert warnings into errors with -Werror option
+Through this option, any warning that gcc could report gets converted into error.
+
+Here is an example :
+```c
+#include<stdio.h>
+
+int main(void)
+{
+  char c;
+  // Print the string
+   printf("\n The Geek Stuff [%d]\n", c);
+   return 0;
+}```
+
+The compilation of above code should generate warning related to undefined variable c and this should get converted into error by using -Werror option.
+```
+
+$ gcc -Wall -Werror main.c -o main
+main.c: In function â€˜mainâ€™:
+main.c:7:10: error: â€˜câ€™ is used uninitialized in this function [-Werror=uninitialized]
+cc1: all warnings being treated as errors
+```
+
+15. Provide gcc options through a file using @ option
+The options to gcc can also be provided through a file. This can be done using the @ option followed by the file name containing the options. More than one options are separated by a white space.
+
+Here is an example :
+```
+$ cat opt_file 
+Wall -omain
+The opt_file contains the options.
+
+Now compile the code by providing opt_file along with option @.
+
+$ gcc main.c @opt_file
+main.c: In function ‘main’:
+main.c:6:11: warning: ‘i’ is used uninitialized in this function [-Wuninitialized]
+
+$ ls main
+main
+```
+
+The output confirms that file opt_file was parsed to get the options and the compilation was done accordingly
