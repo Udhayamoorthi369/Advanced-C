@@ -477,6 +477,7 @@ $ gcc -Wall -fsigned-char main.c -o main
 $ ./main
 
 xtream silica [-10]
+
 ```
 The output confirms that char was treated as signed.
 
