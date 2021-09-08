@@ -458,13 +458,14 @@ int main(void)
    }
    ```
    When the above code is compiled with funsigned-char option, here is the output :
-  
-
+ 
+ ```
 $ gcc -Wall -funsigned-char main.c -o main
 $ ./main
 
  xtream silica [246]
-    ```
+    
+ ```
 
 So we see that the char was indeed treated as unsigned.
 
