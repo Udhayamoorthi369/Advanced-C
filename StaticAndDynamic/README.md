@@ -44,6 +44,19 @@ Create one more file named add.c that contains the code of add module. Insert th
 *{
  * return(X + Y);
 *}
+```c
+#include "add.h"
+
+int add(int a, int b)
+{
+    return a + b;
+}
+
+int sub(int a, int b)
+{
+    return a - b;
+}
+```
 After having created above files, you can start building the executable as follows:
 
 ## [root@host ~]# gcc -I . -c addDemo.c
