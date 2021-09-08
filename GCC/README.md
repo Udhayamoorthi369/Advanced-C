@@ -476,8 +476,7 @@ Here is an example :
 $ gcc -Wall -fsigned-char main.c -o main
 $ ./main
 
-xtream silica [-10]
-```
+xtream silica [-10]```
 The output confirms that char was treated as signed.
 
 13. Use compile time macros using -D option
@@ -504,9 +503,8 @@ The compiler option -D can be used to define the macro MY_MACRO from command lin
 $ gcc -Wall -DMY_MACRO main.c -o main
 $ ./main
  Macro defined 
-```
 
- xtreme silica [-10]
+ xtreme silica [-10] ```
 The print related to macro in the output confirms that the macro was defined.
 
 14. Convert warnings into errors with -Werror option
