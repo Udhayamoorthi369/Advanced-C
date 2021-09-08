@@ -89,7 +89,7 @@ int sub(int a, int b)
 {
     return a - b;
 }
-```
+```c
 Now compile sub.c as follows in order to get the binary object file.
 ## [root@host ~]# gcc -c sub.c
 Above command will produce binary object file sub.o.
@@ -100,6 +100,7 @@ Now, we have two binary object files viz add.o, and sub.o. We have add.o file in
 The above command produces a new file libheymath.a, which is a static library containing two object files and can be used further as and when we wish to use add, or sub functions or both in our programs.
 To use the sub function in addDemo we need to make a few changes in addDemo.c and will recompile it. Make the following changes in addDemo.c.
 
+```c
 #include <heymath.h>
 #include <stdio.h>
  
@@ -110,6 +111,7 @@ int main()
   printf("\n%d + %d = %d", x, y, sub(x, y));
   return 0;
 }
+```c
 If you see, we have replaced the first statement #include <add.h> by #include <heymath.h>. Because heymath.h now contains the signatures of both add and sub functions and added one more printf statement which is calling the sub function to print the difference of variable x, and y.
 
 Now remove all .o files from working directory (rm will help you to do that). Create addDemo.o as follows:
@@ -154,7 +156,7 @@ or
 ## [root@host ~]# gcc -o addDemo addDemo.o -lheymath
 
 You can list the shared library dependencies which your executable is dependent upon. The ldd <name-of-executable> command does that for you.
-[root@host ~]# ldd addition
+## [root@host ~]# ldd addition
 libheymath.so => /usr/lib/libheymath.so (0x00002b19378fa000)
 libc.so.6 => /lib64/libc.so.6 (0x00002b1937afb000)
 /lib64/ld-linux-x86-64.so.2 (0x00002b19376dd000)
