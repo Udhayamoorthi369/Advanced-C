@@ -28,6 +28,8 @@ DESCRIPTION
 ```
 As you can see from the description above, an ELF file consists of two sections – an ELF header, and file data. The file data section can consist of a program header table describing zero or more segments, a section header table describing zero or more sections, that is followed by data referred to by entries from the program header table, and the section header table. Each segment contains information that is necessary for run-time execution of the file, while sections contain important data for linking and relocation. Figure 1 illustrates this schematically.
 
+![1-7](https://user-images.githubusercontent.com/89963356/132694268-69dc84e0-28d6-4865-a5ba-407a2de84fd3.png)
+
 
 
 
@@ -36,7 +38,8 @@ The ELF header is 32 bytes long, and identifies the format of the file. It start
 
 The hexdump of the binary file touch looks as follows:
 
-.Listing 2: The hexdump of the binary file
+### .Listing 2: The hexdump of the binary file
+```
 $ hd /usr/bin/touch | head -5
 00000000  7f 45 4c 46 02 01 01 00  00 00 00 00 00 00 00 00  |.ELF............|
 00000010  02 00 3e 00 01 00 00 00  e3 25 40 00 00 00 00 00  |..>......%@.....|
@@ -67,12 +70,13 @@ ELF Header:
   Size of section headers:           64 (bytes)
   Number of section headers:         27
   Section header string table index: 26
+```
 The Program Header
 The program header shows the segments used at run-time, and tells the system how to create a process image. The header from Listing 2 shows that the ELF file consists of 9 program headers that have a size of 56 bytes each, and the first header starts at byte 64.
 
 
 Again, the readelf command helps to extract the information from the ELF file. The switch -l (short for –program-headers or –segments) reveals more details as shown in Listing 4.
-
+```
 .Listing 4: Display information about the program headers
 $ readelf -l /usr/bin/touch
 
@@ -114,11 +118,13 @@ Program Headers:
    06     .eh_frame_hdr
    07    
    08     .init_array .fini_array .jcr .dynamic .got
+```
 The Section Header
 The third part of the ELF structure is the section header. It is meant to list the single sections of the binary. The switch -S (short for –section-headers or –sections) lists the different headers. As for the touch command, there are 27 section headers, and Listing 5 shows the first four of them plus the last one, only. Each line covers the section size, the section type as well as its address and memory offset.
 
 
-.Listing 5: Section details revealed by readelf
+### .Listing 5: Section details revealed by readelf
+```
 $ readelf -S /usr/bin/touch
 There are 27 section headers, starting at offset 0xe428:
 
@@ -136,6 +142,7 @@ Section Headers:
 ...
   [26] .shstrtab         STRTAB           0000000000000000  0000e334
        00000000000000ef  0000000000000000           0     0     1
+```
 Key to Flags:
   W (write), A (alloc), X (execute), M (merge), S (strings), l (large)
   I (info), L (link order), G (group), T (TLS), E (exclude), x (unknown)
@@ -145,15 +152,16 @@ As you may have noted from the examples above, GNU/Linux is fleshed out with a n
 
 file displays basic information about ELF files, including the instruction set architecture for which the code in a relocatable, executable, or shared object file is intended. In listing 6 it tells you that /bin/touch is a 64-bit executable file following the Linux Standard Base (LSB), dynamically linked, and built for the GNU/Linux kernel version 2.6.32.
 
-
-.Listing 6: Basic information using file
+### .Listing 6: Basic information using file
+```
 $ file /bin/touch
 /bin/touch: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/l,
 for GNU/Linux 2.6.32, BuildID[sha1]=ec08d609e9e8e73d4be6134541a472ad0ea34502, stripped
 $
 The second candidate is readelf. It displays detailed information about an ELF file. The list of switches is comparably long, and covers all the aspects of the ELF format. Using the switch -n (short for –notes) Listing 7 shows the note sections, only, that exist in the file touch – the ABI version tag, and the build ID bitstring.
-
-.Listing 7: Display Selected sections of an ELF file
+```
+### .Listing 7: Display Selected sections of an ELF file
+```
 $ readelf -n /usr/bin/touch
 
 Displaying notes found at file offset 0x00000254 with length 0x00000020:
@@ -165,6 +173,7 @@ Displaying notes found at file offset 0x00000274 with length 0x00000024:
   Owner                 Data size   Description
   GNU                  0x00000014   NT_GNU_BUILD_ID (unique build ID bitstring)
     Build ID: ec08d609e9e8e73d4be6134541a472ad0ea34502
+```
 Note that under Solaris and FreeBSD, the utility elfdump [7] corresponds with readelf. As of 2019, there has not been a new release or update since 2003.
 
 Number three is the package named elfutils [6] that is purely available for Linux. It provides alternative tools to GNU Binutils, and also allows validating ELF files. Note that all the names of the utilities provided in the package start with eu for ‘elf utils’.
@@ -172,14 +181,15 @@ Number three is the package named elfutils [6] that is purely available for Linu
 Last but not least we will mention objdump. This tool is similar to readelf but focuses on object files. It provides a similar range of information about ELF files and other object formats.
 
 
-.Listing 8: File information extracted by objdump
+.### Listing 8: File information extracted by objdump
+```
 $ objdump -f /bin/touch
 
 /bin/touch:     file format elf64-x86-64
 architecture: i386:x86-64, flags 0x00000112:
 EXEC_P, HAS_SYMS, D_PAGED
 start address 0x00000000004025e3
-
+```
 $
 There is also a software package called ‘elfkickers’ [9] which contains tools to read the contents of an ELF file as well as manipulating it. Unfortunately, the number of releases is rather low, and that’s why we just mention it, and do not show further examples.
 
