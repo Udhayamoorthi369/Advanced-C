@@ -181,7 +181,7 @@ Number three is the package named elfutils [6] that is purely available for Linu
 Last but not least we will mention objdump. This tool is similar to readelf but focuses on object files. It provides a similar range of information about ELF files and other object formats.
 
 
-.### Listing 8: File information extracted by objdump
+### .Listing 8: File information extracted by objdump
 ```
 $ objdump -f /bin/touch
 
@@ -191,11 +191,4 @@ EXEC_P, HAS_SYMS, D_PAGED
 start address 0x00000000004025e3
 ```
 $
-There is also a software package called ‘elfkickers’ [9] which contains tools to read the contents of an ELF file as well as manipulating it. Unfortunately, the number of releases is rather low, and that’s why we just mention it, and do not show further examples.
 
-As a developer you may have a look at ‘pax-utils’ [10,11], instead. This set of utilities provides a number of tools that help to validate ELF files. As an example, dumpelf analyzes the ELF file, and returns a C header file containing the details – see Figure 2.
-
-
-
-Conclusion
-Thanks to a combination of clever design and excellent documentation the ELF format works very well, and is still in use after 20 years. The utilities shown above allow you an insight view into an ELF file, and let you figure out what a program is doing. These are the first steps for analyzing software – happy hacking!
