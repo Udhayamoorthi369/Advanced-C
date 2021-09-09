@@ -1,7 +1,8 @@
 The Structure of an ELF File
 On a Linux terminal, the command man elf gives you a handy summary about the structure of an ELF file:
 
-Listing 1: The manpage of the ELF structure
+### Listing 1: The manpage of the ELF structure
+```
 $ man elf
 
 ELF(5)                     Linux Programmer's Manual                    ELF(5)
@@ -24,7 +25,7 @@ DESCRIPTION
        defined  in  the  ELF  header.  The two tables describe the rest of the
        particularities of the file.
 
-...
+```
 As you can see from the description above, an ELF file consists of two sections – an ELF header, and file data. The file data section can consist of a program header table describing zero or more segments, a section header table describing zero or more sections, that is followed by data referred to by entries from the program header table, and the section header table. Each segment contains information that is necessary for run-time execution of the file, while sections contain important data for linking and relocation. Figure 1 illustrates this schematically.
 
 
