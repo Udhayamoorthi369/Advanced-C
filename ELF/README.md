@@ -4,29 +4,8 @@ On a Linux terminal, the command man elf gives you a handy summary about the str
 
 ### Listing 1: The manpage of the ELF structure
 ```
-$ man elf
+![Screenshot from 2021-09-12 16-08-22](https://user-images.githubusercontent.com/89963356/132994853-801cca1c-0305-47d1-ab2e-23ed292692da.png)
 
-ELF(5)                     Linux Programmer's Manual                    ELF(5)
-
-NAME
-       elf - format of Executable and Linking Format (ELF) files
-
-SYNOPSIS
-       #include <elf.h>
-
-DESCRIPTION
-       The  header  file  <elf.h>  defines the format of ELF executable binary
-       files.  Amongst these files are normal  executable  files,  relocatable
-       object files, core files and shared libraries.
-
-       An executable file using the ELF file format consists of an ELF header,
-       followed by a program header table or a section header table, or  both.
-       The  ELF  header  is  always  at  offset zero of the file.  The program
-       header table and the section header table's  offset  in  the  file  are
-       defined  in  the  ELF  header.  The two tables describe the rest of the
-       particularities of the file.
-
-```
 As you can see from the description above, an ELF file consists of two sections – an ELF header, and file data. The file data section can consist of a program header table describing zero or more segments, a section header table describing zero or more sections, that is followed by data referred to by entries from the program header table, and the section header table. Each segment contains information that is necessary for run-time execution of the file, while sections contain important data for linking and relocation. Figure 1 illustrates this schematically.
 
 ![1-7](https://user-images.githubusercontent.com/89963356/132694268-69dc84e0-28d6-4865-a5ba-407a2de84fd3.png)
@@ -41,13 +20,6 @@ The hexdump of the binary file touch looks as follows:
 
 ### .Listing 2: The hexdump of the binary file
 ```
-$ hd /usr/bin/touch | head -5
-00000000  7f 45 4c 46 02 01 01 00  00 00 00 00 00 00 00 00  |.ELF............|
-00000010  02 00 3e 00 01 00 00 00  e3 25 40 00 00 00 00 00  |..>......%@.....|
-00000020  40 00 00 00 00 00 00 00  28 e4 00 00 00 00 00 00  |@.......(.......|
-00000030  00 00 00 00 40 00 38 00  09 00 40 00 1b 00 1a 00  |....@.8...@.....|
-00000040  06 00 00 00 05 00 00 00  40 00 00 00 00 00 00 00  |........@.......|
-Debian GNU/Linux offers the readelf command that is provided in the GNU ‘binutils’ package. Accompanied by the switch -h (short version for “–file-header”) it nicely displays the header of an ELF file. Listing 3 illustrates this for the command touch.
 
 .Listing 3: Displaying the header of an ELF file
 $ readelf -h /usr/bin/touch
@@ -73,42 +45,6 @@ Entry point 0x4025e3
 There are 9 program headers, starting at offset 64
 
 Program Headers:
-  Type           Offset             VirtAddr           PhysAddr
-                 FileSiz            MemSiz              Flags  Align
-  PHDR           0x0000000000000040 0x0000000000400040 0x0000000000400040
-                 0x00000000000001f8 0x00000000000001f8  R E    8
-  INTERP         0x0000000000000238 0x0000000000400238 0x0000000000400238
-                 0x000000000000001c 0x000000000000001c  R      1
-      [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]
-  LOAD           0x0000000000000000 0x0000000000400000 0x0000000000400000
-                 0x000000000000d494 0x000000000000d494  R E    200000
-  LOAD           0x000000000000de10 0x000000000060de10 0x000000000060de10
-                 0x0000000000000524 0x0000000000000748  RW     200000
-  DYNAMIC        0x000000000000de28 0x000000000060de28 0x000000000060de28
-                 0x00000000000001d0 0x00000000000001d0  RW     8
-  NOTE           0x0000000000000254 0x0000000000400254 0x0000000000400254
-                 0x0000000000000044 0x0000000000000044  R      4
-  GNU_EH_FRAME   0x000000000000bc40 0x000000000040bc40 0x000000000040bc40
-                 0x00000000000003a4 0x00000000000003a4  R      4
-  GNU_STACK      0x0000000000000000 0x0000000000000000 0x0000000000000000
-                 0x0000000000000000 0x0000000000000000  RW     10
-  GNU_RELRO      0x000000000000de10 0x000000000060de10 0x000000000060de10
-                 0x00000000000001f0 0x00000000000001f0  R      1
-
- Section to Segment mapping:
-  Segment Sections...![Screenshot from 2021-09-12 15-53-58](https://user-images.githubusercontent.com/89963356/132994340-fe9072ec-d9e2-45f1-a2af-45080ba39fda.png)
-![Screenshot from 2021-09-12 15-53-58](https://user-images.githubusercontent.com/89963356/132994344-796317e4-f6e7-48af-8052-4816037ac1e1.png)
-![Screenshot from 2021-09-12 15-53-58](https://user-images.githubusercontent.com/89963356/132994357-d8d8639e-faaa-47f3-8049-f38f0950e37a.png)
-
-   00    
-   01     .interp
-   02     .interp .note.ABI-tag .note.gnu.build-id .gnu.hash .dynsym .dynstr .gnu.version .gnu.version_r .rela.dyn .rela.plt .init .plt .text .fini .rodata .eh_frame_hdr .eh_frame
-   03     .init_array .fini_array .jcr .dynamic .got .got.plt .data .bss
-   04     .dynamic
-   05     .note.ABI-tag .note.gnu.build-id
-   06     .eh_frame_hdr
-   07    
-   08     .init_array .fini_array .jcr .dynamic .got
 ```
 ![Screenshot from 2021-09-12 15-53-18](https://user-images.githubusercontent.com/89963356/132994330-ab56d53f-6627-4182-a20f-20d64fa740c6.png)
 ![Screenshot from 2021-09-12 15-53-58](https://user-images.githubusercontent.com/89963356/132994399-4001dd16-905d-4ffe-b4ae-eac57521b23f.png)
