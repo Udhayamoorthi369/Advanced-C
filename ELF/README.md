@@ -55,8 +55,6 @@ ELF Header:
   
 ```
   ![Screenshot from 2021-09-12 13-14-27](https://user-images.githubusercontent.com/89963356/132989171-6e7b1c9f-05a8-434b-bbe1-c8d91064f8ab.png)
-  ![Screenshot from 2021-09-12 15-40-20](https://user-images.githubusercontent.com/89963356/132993966-db6b5d0c-7a40-4bed-8bba-0de629bfb1ef.png)
-  ![Screenshot from 2021-09-12 15-40-20](https://user-images.githubusercontent.com/89963356/132994145-c18a0b5d-66fe-4558-a153-5044febabffa.png)
 
 
 
@@ -98,7 +96,10 @@ Program Headers:
                  0x00000000000001f0 0x00000000000001f0  R      1
 
  Section to Segment mapping:
-  Segment Sections...
+  Segment Sections...![Screenshot from 2021-09-12 15-53-58](https://user-images.githubusercontent.com/89963356/132994340-fe9072ec-d9e2-45f1-a2af-45080ba39fda.png)
+![Screenshot from 2021-09-12 15-53-58](https://user-images.githubusercontent.com/89963356/132994344-796317e4-f6e7-48af-8052-4816037ac1e1.png)
+![Screenshot from 2021-09-12 15-53-58](https://user-images.githubusercontent.com/89963356/132994357-d8d8639e-faaa-47f3-8049-f38f0950e37a.png)
+
    00    
    01     .interp
    02     .interp .note.ABI-tag .note.gnu.build-id .gnu.hash .dynsym .dynstr .gnu.version .gnu.version_r .rela.dyn .rela.plt .init .plt .text .fini .rodata .eh_frame_hdr .eh_frame
@@ -109,6 +110,10 @@ Program Headers:
    07    
    08     .init_array .fini_array .jcr .dynamic .got
 ```
+![Screenshot from 2021-09-12 15-53-18](https://user-images.githubusercontent.com/89963356/132994330-ab56d53f-6627-4182-a20f-20d64fa740c6.png)
+![Screenshot from 2021-09-12 15-53-58](https://user-images.githubusercontent.com/89963356/132994399-4001dd16-905d-4ffe-b4ae-eac57521b23f.png)
+
+
 The Section Header
 The third part of the ELF structure is the section header. It is meant to list the single sections of the binary. The switch -S (short for –section-headers or –sections) lists the different headers. As for the touch command, there are 27 section headers, and Listing 5 shows the first four of them plus the last one, only. Each line covers the section size, the section type as well as its address and memory offset.
 
@@ -180,5 +185,7 @@ architecture: i386:x86-64, flags 0x00000112:
 EXEC_P, HAS_SYMS, D_PAGED
 start address 0x00000000004025e3
 ```
+![Screenshot from 2021-09-12 15-59-42](https://user-images.githubusercontent.com/89963356/132994540-8385dc3a-aa35-4e36-9495-2ff1d3241c8c.png)
+
 $
 
