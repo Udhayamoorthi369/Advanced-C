@@ -51,29 +51,11 @@ Debian GNU/Linux offers the readelf command that is provided in the GNU ‘binut
 .Listing 3: Displaying the header of an ELF file
 $ readelf -h /usr/bin/touch
 ELF Header:
-  Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00
-  Class:                             ELF64
-  Data:                              2's complement, little endian
-  Version:                           1 (current)
-  OS/ABI:                            UNIX - System V
-  ABI Version:                       0
-  Type:                              EXEC (Executable file)
-  Machine:                           Advanced Micro Devices X86-64
-  Version:                           0x1
-  Entry point address:               0x4025e3
-  Start of program headers:          64 (bytes into file)
-  Start of section headers:          58408 (bytes into file)
-  Flags:                             0x0
-  Size of this header:               64 (bytes)
-  Size of program headers:           56 (bytes)
-  Number of program headers:         9
-  Size of section headers:           64 (bytes)
-  Number of section headers:         27
-  Section header string table index: 26
-  ![Screenshot from 2021-09-12 13-14-27](https://user-images.githubusercontent.com/89963356/132989171-6e7b1c9f-05a8-434b-bbe1-c8d91064f8ab.png)
-
+  
 ```
   ![Screenshot from 2021-09-12 13-14-27](https://user-images.githubusercontent.com/89963356/132989171-6e7b1c9f-05a8-434b-bbe1-c8d91064f8ab.png)
+  ![Screenshot from 2021-09-12 15-40-20](https://user-images.githubusercontent.com/89963356/132993966-db6b5d0c-7a40-4bed-8bba-0de629bfb1ef.png)
+
 
 
 The Program Header
