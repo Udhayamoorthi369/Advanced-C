@@ -1,3 +1,4 @@
+
 The Structure of an ELF File
 On a Linux terminal, the command man elf gives you a handy summary about the structure of an ELF file:
 
@@ -55,6 +56,8 @@ ELF Header:
 ```
   ![Screenshot from 2021-09-12 13-14-27](https://user-images.githubusercontent.com/89963356/132989171-6e7b1c9f-05a8-434b-bbe1-c8d91064f8ab.png)
   ![Screenshot from 2021-09-12 15-40-20](https://user-images.githubusercontent.com/89963356/132993966-db6b5d0c-7a40-4bed-8bba-0de629bfb1ef.png)
+  ![Screenshot from 2021-09-12 15-40-20](https://user-images.githubusercontent.com/89963356/132994145-c18a0b5d-66fe-4558-a153-5044febabffa.png)
+
 
 
 
