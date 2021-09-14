@@ -71,14 +71,15 @@ Skip this if you already have doxygen configured
    
 <tr>
 <td> Fork </td>
-<td> A sorting algorithm is a method for reorganizing a large number of items into a specific order, such as alphabetical, highest-to-lowest value or shortest-to-longest distance
+<td> 
+Fork() is system call which is used to create new process. New process created by fork() system call is called child process and process that invoked fork() system call is called parent process.
 </td>
 <td><a href="https://github.com/Udhayamoorthi369/Advanced-C/tree/main/Fork"> code </a></td>
 </tr>
    
 <tr>
 <td> File_system </td>
-<td> A sorting algorithm is a method for reorganizing a large number of items into a specific order, such as alphabetical, highest-to-lowest value or shortest-to-longest distance
+<td>A file system is a process that manages how and where data on a storage disk, typically a hard disk drive (HDD), is stored, accessed and managed.
 </td>
 <td><a href="https://github.com/Udhayamoorthi369/Advanced-C/tree/main/File_system"> code </a></td>
 </tr>
@@ -86,28 +87,28 @@ Skip this if you already have doxygen configured
   
  <tr>
 <td> atExit </td>
-<td> A sorting algorithm is a method for reorganizing a large number of items into a specific order, such as alphabetical, highest-to-lowest value or shortest-to-longest distance
+<td> The function pointed by atexit() is automatically called without arguments when the program terminates normally. In case more than one function has been specified by different calls to the atexit() function, all are executed in the order of a stack (i.e. the last function specified is the first to be executed at exit).
 </td>
 <td><a href="https://github.com/Udhayamoorthi369/Advanced-C/tree/main/atEXIT"> code </a></td>
 </tr>
    
   <tr>
 <td> systemcall </td>
-<td> A sorting algorithm is a method for reorganizing a large number of items into a specific order, such as alphabetical, highest-to-lowest value or shortest-to-longest distance
+<td>A system call is just what its name implies -- a request for the operating system to do something on behalf of the user's program.  The system calls are functions used in the kernel itself.  To the programmer, the system call appears as a normal C function call.
 </td>
 <td><a href="https://github.com/Udhayamoorthi369/Advanced-C/tree/main/systemcalls"> code </a></td>
 </tr>
 
    <tr>
 <td> shared library </td>
-<td> A sorting algorithm is a method for reorganizing a large number of items into a specific order, such as alphabetical, highest-to-lowest value or shortest-to-longest distance
+<td>Shared libraries (also called dynamic libraries) are linked into the program in two stages. First, during compile time, the linker verifies that all the symbols (again, functions, variables and the like) required by the program, are either linked into the program, or in one of its shared libraries.
 </td>
 <td><a href="https://github.com/Udhayamoorthi369/Advanced-C/tree/main/Shared_Library"> code </a></td>
 </tr>
    
     <tr>
 <td> VFORK </td>
-<td> A sorting algorithm is a method for reorganizing a large number of items into a specific order, such as alphabetical, highest-to-lowest value or shortest-to-longest distance
+<td> Vfork() is also system call which is used to create new process. New process created by vfork() system call is called child process and process that invoked vfork() system call is called parent process.
 </td>
 <td><a href="https://github.com/Udhayamoorthi369/Advanced-C/tree/main/VFork"> code </a></td>
 </tr>
