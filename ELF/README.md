@@ -123,5 +123,65 @@ start address 0x00000000004025e3
 ```
 ![Screenshot from 2021-09-12 15-59-42](https://user-images.githubusercontent.com/89963356/132994540-8385dc3a-aa35-4e36-9495-2ff1d3241c8c.png)
 
-$
 
+### ELF sections
+# Section headers
+The section headers define all the sections in the file. As said, this “view” is used for linking and relocation.
+
+Sections can be found in an ELF binary after the GNU C compiler transformed C code into assembly, followed by the GNU assembler, which creates objects of it.
+
+As the image above shows, a segment can have 0 or more sections. For executable files there are four main sections: .text, .data, .rodata, and .bss. Each of these sections is loaded with different access rights, which can be seen with readelf -S.
+
+# .text
+Contains executable code. It will be packed into a segment with read and execute access rights. It is only loaded once, as the contents will not change. This can be seen with the objdump utility.
+'''
+12 .text 0000a3e9 0000000000402120 0000000000402120 00002120 2**4
+CONTENTS, ALLOC, LOAD, READONLY, CODE
+'''
+# .data
+Initialized data, with read/write access rights
+
+# .rodata
+Initialized data, with read access rights only (=A).
+
+# .bss
+Uninitialized data, with read/write access rights (=WA)
+'''
+[24] .data PROGBITS 00000000006172e0 000172e0
+0000000000000100 0000000000000000 WA 0 0 8
+[25] .bss NOBITS 00000000006173e0 000173e0
+0000000000021110 0000000000000000 WA 0 0 32
+'''
+## Commands to see section and headers
+
+dumpelf
+elfls -p /bin/ps
+eu-readelf –section-headers /bin/ps
+readelf -S /bin/ps
+objdump -h /bin/ps
+Section groups
+Some sections can be grouped, as they form a whole, or in other words be a dependency. Newer linkers support this functionality. Still, this is not common to find that often:
+
+# readelf -g /bin/ps
+
+ 
+
+There are no section groups in this file.
+
+While this might not be looking very interesting, it shows a clear benefit of researching the ELF toolkits which are available, for analysis. For this reason, an overview of tools and their primary goal have been included at the end of this article.
+
+Static versus Dynamic binaries
+When dealing with ELF binaries, it is good to know that there are two types and how they are linked. The type is either static or dynamic and refers to the libraries that are used. For optimization purposes, we often see that binaries are “dynamic”, which means it needs external components to run correctly. Often these external components are normal libraries, which contain common functions, like opening files or creating a network socket. Static binaries, on the other hand, have all libraries included. It makes them bigger, yet more portable (e.g. using them on another system).
+
+If you want to check if a file is statically or dynamically compiled, use the file command. If it shows something like:
+
+$ file /bin/ps
+/bin/ps: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.24, BuildID[sha1]=2053194ca4ee8754c695f5a7a7cff2fb8fdd297e, stripped
+
+To determine what external libraries are being used, simply use the ldd on the same binary:
+
+$ ldd /bin/ps
+linux-vdso.so.1 => (0x00007ffe5ef0d000)
+libprocps.so.3 => /lib/x86_64-linux-gnu/libprocps.so.3 (0x00007f8959711000)
+libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f895934c000)
+/lib64/ld-linux-x86-64.so.2 (0x00007f8959935000)
