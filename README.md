@@ -97,3 +97,17 @@ Skip this if you already have doxygen configured
 </td>
 <td><a href="https://github.com/Udhayamoorthi369/Advanced-C/tree/main/systemcalls"> code </a></td>
 </tr>
+
+   <tr>
+<td> shared library </td>
+<td> A sorting algorithm is a method for reorganizing a large number of items into a specific order, such as alphabetical, highest-to-lowest value or shortest-to-longest distance
+</td>
+<td><a href="https://github.com/Udhayamoorthi369/Advanced-C/tree/main/Shared_Library"> code </a></td>
+</tr>
+   
+    <tr>
+<td> VFORK </td>
+<td> A sorting algorithm is a method for reorganizing a large number of items into a specific order, such as alphabetical, highest-to-lowest value or shortest-to-longest distance
+</td>
+<td><a href="https://github.com/Udhayamoorthi369/Advanced-C/tree/main/VFork"> code </a></td>
+</tr>
