@@ -10,36 +10,37 @@ Step 3: Linking with a shared library
 
 ![IMG_0355](https://user-images.githubusercontent.com/89963356/133213817-5e49a6ea-3b27-480b-8af0-8f3e3ae9aaeb.jpg)
 
-$ gcc -Wall -o test main.c -l
-,'''/usr/bin/ld: cannot find -lfoo
+## $ gcc -Wall -o test main.c -l
+```/usr/bin/ld: cannot find -lfoo
 collect2: ld returned 1 exit status
 Telling GCC where to find the shared library
 Uh-oh! The linker does not know where to find libfoo. GCC has a list of places it looks by default, but our directory is not in that list.2 We need to tell GCC where to find libfoo.so. We will do that with the -L option. In this example, we will use the current directory, /home/username/foo:
-'''
-$ gcc -L/home/username/foo -Wall -o test main.c -lfoo
+```
+### $ gcc -L/home/username/foo -Wall -o test main.c -lfoo
 Step 4: Making the library available at runtime
 Good, no errors. Now let us run our program:
-
+```
 $ ./test
 ./test: error while loading shared libraries: libfoo.so: cannot open shared object file: No such file or directory
 Oh no! The loader cannot find the shared library.3 We did not install it in a standard location, so we need to give the loader a little help. We have a couple of options: we can use the environment variable LD_LIBRARY_PATH for this, or rpath. Let us take a look first at LD_LIBRARY_PATH:
-
-Using LD_LIBRARY_PATH
-$ echo $LD_LIBRARY_PATH
+```
+### Using LD_LIBRARY_PATH
+## $ echo $LD_LIBRARY_PATH
 There is nothing in there. Let us fix that by prepending our working directory to the existing LD_LIBRARY_PATH:
-
+```
 $ LD_LIBRARY_PATH=/home/username/foo:$LD_LIBRARY_PATH
 $ ./test
 ./test: error while loading shared libraries: libfoo.so: cannot open shared object file: No such file or directory
 What happened? Our directory is in LD_LIBRARY_PATH, but we did not 
 export it. In Linux, if you do not export the changes to an environment variable, they will not be inherited by the child processes. The loader and our test program did not inherit the changes we made. Thankfully, the fix is easy:
-
-$ export LD_LIBRARY_PATH=/home/username/foo:$LD_LIBRARY_PATH
+```
+## $ export LD_LIBRARY_PATH=/home/username/foo:$LD_LIBRARY_PATH
+```
 $ ./test
 This is a shared library test...
 Hello, I am a shared library
 Good, it worked! LD_LIBRARY_PATH is great for quick tests and for systems on which you do not have admin privileges. As a downside, however, exporting the LD_LIBRARY_PATH variable means it may cause problems with other programs you run that also rely on LD_LIBRARY_PATH if you do not reset it to its previous state when you are done.
-
+```
 Using rpath
 Now let s try rpath (first we will clear LD_LIBRARY_PATH to ensure it is rpath that is finding our library). Rpath, or the run path, is a way of embedding the location of shared libraries in the executable itself, instead of relying on default locations or environment variables. We do this during the linking stage. Notice the lengthy â€œ-Wl,-rpath=/home/username/fooâ€ option. The -Wl portion sends comma-separated options to the linker, so we tell it to send the -rpath option to the linker with our working directory.
 
