@@ -8,7 +8,8 @@ Now we need to actually turn this object file into a shared library. We will cal
 gcc -shared -o libdisplayuid.so displayuid.o
 Step 3: Linking with a shared library
 
-![Uploading IMG_0355.jpg…]()
+![IMG_0355](https://user-images.githubusercontent.com/89963356/133213817-5e49a6ea-3b27-480b-8af0-8f3e3ae9aaeb.jpg)
+
 $ gcc -Wall -o test main.c -lfoo
 /usr/bin/ld: cannot find -lfoo
 collect2: ld returned 1 exit status
