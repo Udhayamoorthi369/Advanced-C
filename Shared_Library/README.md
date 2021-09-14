@@ -7,7 +7,9 @@ Now we need to actually turn this object file into a shared library. We will cal
 
 gcc -shared -o libdisplayuid.so displayuid.o
 Step 3: Linking with a shared library
-![https://github.com/Udhayamoorthi369/Advanced-C/blob/main/Shared_Library/snap/IMG_0355.jpg]
+![](https://github.com/Udhayamoorthi369/Advanced-C/blob/main/Shared_Library/snap/IMG_0355.jpg ")
+
+//![https://github.com/Udhayamoorthi369/Advanced-C/blob/main/Shared_Library/snap/IMG_0355.jpg]
 As you can see, that was actually pretty easy. We have a shared library. Let us compile our main.c and link it with libfoo. We will call our final program test. Note that the -lfoo option is not looking for foo.o, but libfoo.so. GCC assumes that all libraries start with lib and end with .so or .a (.so is for shared object or shared libraries, and .a is for archive, or statically linked libraries).
 
 $ gcc -Wall -o test main.c -lfoo
