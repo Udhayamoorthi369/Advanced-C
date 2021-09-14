@@ -154,12 +154,13 @@ Uninitialized data, with read/write access rights (=WA)
 '''
 ## Commands to see section and headers
 
-dumpelf
-elfls -p /bin/ps
-eu-readelf –section-headers /bin/ps
-readelf -S /bin/ps
-objdump -h /bin/ps
-Section groups
+* dumpelf
+* elfls -p /bin/ps
+* eu-readelf –section-headers /bin/ps
+* readelf -S /bin/ps
+* objdump -h /bin/ps
+
+# Section groups
 Some sections can be grouped, as they form a whole, or in other words be a dependency. Newer linkers support this functionality. Still, this is not common to find that often:
 
 # readelf -g /bin/ps
@@ -175,9 +176,10 @@ When dealing with ELF binaries, it is good to know that there are two types and 
 
 If you want to check if a file is statically or dynamically compiled, use the file command. If it shows something like:
 
-$ file /bin/ps
+# $ file /bin/ps
+'''
 /bin/ps: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.24, BuildID[sha1]=2053194ca4ee8754c695f5a7a7cff2fb8fdd297e, stripped
-
+'''
 To determine what external libraries are being used, simply use the ldd on the same binary:
 
 $ ldd /bin/ps
