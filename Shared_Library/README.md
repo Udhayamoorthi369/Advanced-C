@@ -1,21 +1,21 @@
 ### Step 1: Compiling with Position Independent Code
 We need to compile our library source code into position-independent code (PIC):1
 
-$ gcc -c -Wall -Werror -fpic displayuid.c
-Step 2: Creating a shared library from an object file
+## $ gcc -c -Wall -Werror -fpic displayuid.c
+### Step 2: Creating a shared library from an object file
 Now we need to actually turn this object file into a shared library. We will call it libfoo.so:
 
-gcc -shared -o libdisplayuid.so displayuid.o
+## gcc -shared -o libdisplayuid.so displayuid.o
 Step 3: Linking with a shared library
 
 ![IMG_0355](https://user-images.githubusercontent.com/89963356/133213817-5e49a6ea-3b27-480b-8af0-8f3e3ae9aaeb.jpg)
 
-$ gcc -Wall -o test main.c -lfoo
-/usr/bin/ld: cannot find -lfoo
+$ gcc -Wall -o test main.c -l
+,'''/usr/bin/ld: cannot find -lfoo
 collect2: ld returned 1 exit status
 Telling GCC where to find the shared library
 Uh-oh! The linker does not know where to find libfoo. GCC has a list of places it looks by default, but our directory is not in that list.2 We need to tell GCC where to find libfoo.so. We will do that with the -L option. In this example, we will use the current directory, /home/username/foo:
-
+'''
 $ gcc -L/home/username/foo -Wall -o test main.c -lfoo
 Step 4: Making the library available at runtime
 Good, no errors. Now let us run our program:
