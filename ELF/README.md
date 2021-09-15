@@ -236,6 +236,26 @@ Not only there is no error message about redefinition of the same symbol in both
     /tmp/ccIbS5MO.o:(.bss+0x0): first defined here
     ld: Warning: size of symbol `globalVar' changed from 8 in /tmp/ccIbS5MO.o to 4 in /tmp/ccM71JR7.o
   </td>
+  <tr>
+ <td>.comment</th>
+  <td>A series of NULL-terminated strings containing compiler information.
+  </td>
+  <tr>
+ <td>.fini</th>
+  <td>Code which will be executed when program exits normally
+  </td>
+  <tr>
+ <td>.got.plt</th>
+  <td>For dynamic binaries, this Global Offset Table holds the addresses of variables which are relocated upon loading.
+  </td>
+  <tr>
+ <td>.init</th>
+  <td>Code which will be executed when program initializes.
+  </td>
+  <tr>
+ <td>.plt</th>
+  <td>For dynamic binaries, this Procedure Linkage Table holds the trampoline/linkage code..
+  </td>
 # Section groups
 Some sections can be grouped, as they form a whole, or in other words be a dependency. Newer linkers support this functionality. Still, this is not common to find that often:
 
