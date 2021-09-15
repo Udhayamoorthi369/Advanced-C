@@ -14,7 +14,6 @@ Explanation: The arrays we are merging are [1,2,3] and [2,5,6].
 The result of the merge is [1,2,2,3,5,6] with the underlined elements coming from nums1.
 ```
 ### Output
-![image_55415491](https://user-images.githubusercontent.com/89963356/133424977-e1eebc1a-c77c-401f-83ae-09dadc780da6.JPG)
 ![Screenshot 2021-09-15 170230](https://user-images.githubusercontent.com/89963356/133425913-0673daec-934d-4b19-b82a-f0302d253c64.png)
 
 
@@ -77,7 +76,6 @@ Explanation: Your function should return k = 2, with the first two elements of n
 It does not matter what you leave beyond the returned k (hence they are underscores).
 ```
 ### Ouput
-![image_67124481](https://user-images.githubusercontent.com/89963356/133425172-c3ebce2d-ee38-4eaf-93f7-958f2647331f.JPG)
 ![Screenshot 2021-09-15 170507](https://user-images.githubusercontent.com/89963356/133426214-2c691aea-7930-4c65-8b34-79e1eeb88747.png)
 
 
