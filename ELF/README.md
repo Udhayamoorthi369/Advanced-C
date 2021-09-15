@@ -1,5 +1,6 @@
 
 The Structure of an ELF File
+
 On a Linux terminal, the command man elf gives you a handy summary about the structure of an ELF file:
 
 ### Listing 1: The manpage of the ELF structure
@@ -282,4 +283,13 @@ linux-vdso.so.1 => (0x00007ffe5ef0d000)
 libprocps.so.3 => /lib/x86_64-linux-gnu/libprocps.so.3 (0x00007f8959711000)
 libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f895934c000)
 /lib64/ld-linux-x86-64.so.2 (0x00007f8959935000)
+```
+# CHECK WHETHERE FILE IS ELF FILE NOT?
+
+  ![image_50393345](https://user-images.githubusercontent.com/89963356/133401817-c8275dbb-7b2b-4242-9611-4d224ec217a7.JPG)
+
+```
+gcc -g -o checkelf check_elf.c
+./checkelf filename
+
 ```
