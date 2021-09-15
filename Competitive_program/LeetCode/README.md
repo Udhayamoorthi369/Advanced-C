@@ -13,6 +13,10 @@ Output: [1,2,2,3,5,6]
 Explanation: The arrays we are merging are [1,2,3] and [2,5,6].
 The result of the merge is [1,2,2,3,5,6] with the underlined elements coming from nums1.
 ```
+### Output
+![image_55415491](https://user-images.githubusercontent.com/89963356/133424977-e1eebc1a-c77c-401f-83ae-09dadc780da6.JPG)
+
+
 ## Example 2:
 ```
 Input: nums1 = [1], m = 1, nums2 = [], n = 0
@@ -70,6 +74,9 @@ Output: 2, nums = [2,2,_,_]
 Explanation: Your function should return k = 2, with the first two elements of nums being 2.
 It does not matter what you leave beyond the returned k (hence they are underscores).
 ```
+### Ouput
+![image_67124481](https://user-images.githubusercontent.com/89963356/133425172-c3ebce2d-ee38-4eaf-93f7-958f2647331f.JPG)
+
 
 ## Example 2:
 ```
