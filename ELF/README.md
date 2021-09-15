@@ -171,22 +171,22 @@ Section Headers:
   [11] .init             PROGBITS        0000000000004000 004000 000017 00  AX  0   0  4
   [12] .plt              PROGBITS        0000000000004020 004020 0006b0 10  AX  0   0 16
   [13] .plt.got          PROGBITS        00000000000046d0 0046d0 000018 08  AX  0   0  8
-  [14] .text             PROGBITS        00000000000046f0 0046f0 01253e 00  AX  0   0 16
-  [15] .fini             PROGBITS        0000000000016c30 016c30 000009 00  AX  0   0  4
-  [16] .rodata           PROGBITS        0000000000017000 017000 005129 00   A  0   0 32
-  [17] .eh_frame_hdr     PROGBITS        000000000001c12c 01c12c 0008fc 00   A  0   0  4
-  [18] .eh_frame         PROGBITS        000000000001ca28 01ca28 002ed0 00   A  0   0  8
-  [19] .init_array       INIT_ARRAY      0000000000021390 020390 000008 08  WA  0   0  8
-  [20] .fini_array       FINI_ARRAY      0000000000021398 020398 000008 08  WA  0   0  8
-  [21] .data.rel.ro      PROGBITS        00000000000213a0 0203a0 000a38 00  WA  0   0 32
-  [22] .dynamic          DYNAMIC         0000000000021dd8 020dd8 0001f0 10  WA  6   0  8
-  [23] .got              PROGBITS        0000000000021fc8 020fc8 000038 08  WA  0   0  8
-  [24] .got.plt          PROGBITS        0000000000022000 021000 000368 08  WA  0   0  8
-  [25] .data             PROGBITS        0000000000022380 021380 000268 00  WA  0   0 32
-  [26] .bss              NOBITS          0000000000022600 0215e8 0012d8 00  WA  0   0 32
-  [27] .gnu_debuglink    PROGBITS        0000000000000000 0215e8 000034 00      0   0  4
-  [28] .shstrtab         STRTAB          0000000000000000 02161c 00010a 00      0   0  1
-
+* [14] .text             PROGBITS        00000000000046f0 0046f0 01253e 00  AX  0   0 16
+* [15] .fini             PROGBITS        0000000000016c30 016c30 000009 00  AX  0   0  4
+* [16] .rodata           PROGBITS        0000000000017000 017000 005129 00   A  0   0 32
+* [17] .eh_frame_hdr     PROGBITS        000000000001c12c 01c12c 0008fc 00   A  0   0  4
+* [18] .eh_frame         PROGBITS        000000000001ca28 01ca28 002ed0 00   A  0   0  8
+* [19] .init_array       INIT_ARRAY      0000000000021390 020390 000008 08  WA  0   0  8
+* [20] .fini_array       FINI_ARRAY      0000000000021398 020398 000008 08  WA  0   0  8
+* [21] .data.rel.ro      PROGBITS        00000000000213a0 0203a0 000a38 00  WA  0   0 32
+* [22] .dynamic          DYNAMIC         0000000000021dd8 020dd8 0001f0 10  WA  6   0  
+* [23] .got              PROGBITS        0000000000021fc8 020fc8 000038 08  WA  0   0  8
+* [24] .got.plt          PROGBITS        0000000000022000 021000 000368 08  WA  0   0  8
+* [25] .data             PROGBITS        0000000000022380 021380 000268 00  WA  0   0 32
+* [26] .bss              NOBITS          0000000000022600 0215e8 0012d8 00  WA  0   0 32
+* [27] .gnu_debuglink    PROGBITS        0000000000000000 0215e8 000034 00      0   0  4
+* [28] .shstrtab         STRTAB          0000000000000000 02161c 00010a 00      0   0  1
+```
 ## Commands to see section and headers
 
 * dumpelf
