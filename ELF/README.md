@@ -1,4 +1,11 @@
+<h2> Contents </h2>
 
+<table style = "width : 80%" border = "1px solid black"> 
+<tr>
+<th>Folder</th>
+<th>Description</th>
+<th>Link</th>
+</tr>
 The Structure of an ELF File
 On a Linux terminal, the command man elf gives you a handy summary about the structure of an ELF file:
 
