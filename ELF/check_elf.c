@@ -9,7 +9,7 @@ int main(int argc,char *argv[])
 {
 if(argc<2)
 {
-printf("filename is missing..\n");
+printf("filename is missing..");
 exit(1);
 }
 int fd,data;
