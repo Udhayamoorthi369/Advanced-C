@@ -154,23 +154,23 @@ Uninitialized data, with read/write access rights (=WA)
 ```
 $ readelf -S --wide /bin/ls
 There are 29 section headers, starting at offset 0x21728:
-
+```
 Section Headers:
   [Nr] Name              Type            Address          Off    Size   ES Flg Lk Inf Al
-  [ 0]                   NULL            0000000000000000 000000 000000 00      0   0  0
-  [ 1] .interp           PROGBITS        00000000000002a8 0002a8 00001c 00   A  0   0  1
-  [ 2] .note.ABI-tag     NOTE            00000000000002c4 0002c4 000020 00   A  0   0  4
-  [ 3] .note.gnu.build-id NOTE            00000000000002e4 0002e4 000024 00   A  0   0  4
-  [ 4] .gnu.hash         GNU_HASH        0000000000000308 000308 0000c0 00   A  5   0  8
-  [ 5] .dynsym           DYNSYM          00000000000003c8 0003c8 000c90 18   A  6   1  8
-  [ 6] .dynstr           STRTAB          0000000000001058 001058 0005d8 00   A  0   0  1
-  [ 7] .gnu.version      VERSYM          0000000000001630 001630 00010c 02   A  5   0  2
-  [ 8] .gnu.version_r    VERNEED         0000000000001740 001740 000070 00   A  6   1  8
-  [ 9] .rela.dyn         RELA            00000000000017b0 0017b0 001350 18   A  5   0  8
-  [10] .rela.plt         RELA            0000000000002b00 002b00 0009f0 18  AI  5  24  8
-  [11] .init             PROGBITS        0000000000004000 004000 000017 00  AX  0   0  4
-  [12] .plt              PROGBITS        0000000000004020 004020 0006b0 10  AX  0   0 16
-  [13] .plt.got          PROGBITS        00000000000046d0 0046d0 000018 08  AX  0   0  8
+* [ 0]                   NULL            0000000000000000 000000 000000 00      0   0  0
+* [ 1] .interp           PROGBITS        00000000000002a8 0002a8 00001c 00   A  0   0  1
+* [ 2] .note.ABI-tag     NOTE            00000000000002c4 0002c4 000020 00   A  0   0  4
+* [ 3] .note.gnu.build-id NOTE            00000000000002e4 0002e4 000024 00   A  0   0  4
+* [ 4] .gnu.hash         GNU_HASH        0000000000000308 000308 0000c0 00   A  5   0  8
+* [ 5] .dynsym           DYNSYM          00000000000003c8 0003c8 000c90 18   A  6   1  8
+* [ 6] .dynstr           STRTAB          0000000000001058 001058 0005d8 00   A  0   0  1
+* [ 7] .gnu.version      VERSYM          0000000000001630 001630 00010c 02   A  5   0  2
+* [ 8] .gnu.version_r    VERNEED         0000000000001740 001740 000070 00   A  6   1  8
+* [ 9] .rela.dyn         RELA            00000000000017b0 0017b0 001350 18   A  5   0  8
+* [10] .rela.plt         RELA            0000000000002b00 002b00 0009f0 18  AI  5  24  8
+* [11] .init             PROGBITS        0000000000004000 004000 000017 00  AX  0   0  4
+* [12] .plt              PROGBITS        0000000000004020 004020 0006b0 10  AX  0   0 16
+* [13] .plt.got          PROGBITS        00000000000046d0 0046d0 000018 08  AX  0   0  8
 * [14] .text             PROGBITS        00000000000046f0 0046f0 01253e 00  AX  0   0 16
 * [15] .fini             PROGBITS        0000000000016c30 016c30 000009 00  AX  0   0  4
 * [16] .rodata           PROGBITS        0000000000017000 017000 005129 00   A  0   0 32
