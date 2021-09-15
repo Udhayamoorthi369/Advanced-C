@@ -7,11 +7,8 @@
 #include <time.h>
 #include <math.h>
 #include <stdio.h>
-#include <stddef.h>
 #include <string.h>
 #include <stdlib.h>
-#include <stdbool.h>
-
 int main(int argc, char *argv[]){
     int n;
     scanf("%d", &n);
