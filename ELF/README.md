@@ -1,5 +1,10 @@
 
 The Structure of an ELF File
+check whether file is elf file or not
+![image_50393345](https://user-images.githubusercontent.com/89963356/133401817-c8275dbb-7b2b-4242-9611-4d224ec217a7.JPG)
+
+
+
 On a Linux terminal, the command man elf gives you a handy summary about the structure of an ELF file:
 
 ### Listing 1: The manpage of the ELF structure
