@@ -17,7 +17,7 @@ This clearly shows that memory is allocated for this section at runtime i.e. the
 Lets see the content of this section. In the raw form, this just contains opcode/operand bytes which won't make sense to a human eye until we have an `assembly instruction set opcode table` or some tool (a disassembler) to interpret these bytes into CPU instructions. The GNU binutils have a program called `objdump` which can be used to display some information from an ELF binary. This utility has a disassembler which we'll use to disassemble raw bytes of .text section (present in [main] program (compiled from the source [main.c]) into x86_64 Intel CPU instructions. Generate the disassembly by - `objdump -d main`, you'll see various `symbols` (explained later) with their disassembly, scroll down and look for \<main>  symbol, this is the main() described in the file [.c] and look at the source code [sd.c] and then the instructions constituting \<main> carefully.
 
 
- ![SE1](https://user-images.githubusercontent.com/89963356/133987167-85647575-2b59-46ea-8e4b-237583112507.png
+ ![SE1](https://user-images.githubusercontent.com/89963356/133987167-85647575-2b59-46ea-8e4b-237583112507.png)
  
 You'll notice that the statements at 5fe, 605, 60c, 613 are the same instructions which we wrote in our source file [main.c]. I hope this gives a brief idea and understanding towards the .text section.
 
@@ -36,11 +36,11 @@ This section stores all the string literals defined in the program. Look at the 
 ### .DATA SECTION
 This section holds the initialized data of the program. You will find the initialized global/static variables inside this section. Let's look for .data section is file [sd] via objdump.
 
-```shell
+
 ![SE3](https://user-images.githubusercontent.com/89963356/133987478-7a5573a9-81c5-47a3-80f2-f18f1e9882e3.png)
 
 
-```
+
 Look at the address of the symbol `0804A01C <global_var>`, it is the name of the global variable which have the value 'a' defined in the source file [main.c]. Objdump shows the disassembly `or BYTE PTR [rax],dl` here since it is confused between code and data. 
 
 ### .BSS SECTION
@@ -54,10 +54,10 @@ This is a string table for section headers which stores **section names** (in th
 Usage : `readelf -p <section_name|section_index> <elf_binary>`<br>
 Let's look at the `.shstrtab` section of the binary [main].
 
-```shell
+
  ![SE4](https://user-images.githubusercontent.com/89963356/133987819-7ba5cf13-e7d8-45b8-9eb3-6c3f5597703a.png)
 
-```
+
 
 ### .SYMTAB AND .DYNSYM 
 
@@ -68,37 +68,37 @@ In a computer program, symbols just represent memory locations (which may be a f
 ### .STRTAB 
 This section contains ASCII strings representing names of **static symbols** defined in *.symtab* section. Let's dump strings from .strtab section using readelf's -p flag.
 
-```shell
+
 ![se5](https://user-images.githubusercontent.com/89963356/133987895-cecb4b7f-e453-4fe6-9359-683c98fe3a15.png)
 
-```
+
 we can see the symbols defined in source file [main.c] such as the file name `main.c`, the function `main` and the global variables defined `global_var_in_bss` and `global_var`.
 
 
 ### .DYNSTR 
 This section contains ASCII strings representing names of **external/dynmaic symbols** defined in *.dynsym* section. Let's dump strings from .strtab section using readelf's -p flag.
 
-```shell
+
 ![se6](https://user-images.githubusercontent.com/89963356/133987925-8a61fab1-40d8-4099-bb1f-f3df7b47230c.png)
 
-```
+
 
 ### .INTERP 
 Stores the location of the program interpreter, which is the program that is handed over the control after the loader (exec) creates a process. Program interpreter's path is usually set to path of dynamic linker (`ld.so`) which performs the `dependency resolution` (i.e. mapping any shared library required by the invoked program to the process address space), symbol resolution/relocations (as briefly discussed above) and basically any setup done to the environment for the program to begin smooth execution.
 
-```shell
+
 ![se7](https://user-images.githubusercontent.com/89963356/133988121-4ca0537f-338f-419f-989f-76da3174d63a.png)
 
 
-```
+
 
 ### .DYNAMIC 
 It stores the information used by the runtime linker (i.e. `ld.so`) and is only present in dynamically-linked binaries. It contains a series of structures of type `ElfN_Dyn` defined in `/usr/include/elf.h`.
 
-```
+
 ![se8](https://user-images.githubusercontent.com/89963356/133988174-22ad174c-d286-47c6-891a-4a3b397067b0.png)
 
-```
+
 Here, `d_tag` is the dynamic tag that defines the interpretation of `d_un` structure member. Some commonly used values for d_tag are -  
 * DT_NULL : this entry marks as the end of .dynamic section.
 * DT_NEEDED : all the libraries required as a dependency for the invoked program can be seen here as a DT_NEEDED entry whose `d_un` represents a **string table offset** to name of a needed library. These are the entries looked up by programs like `ldd` to list dependencies of a binary.
