@@ -1,6 +1,5 @@
 A section header is defined as follows:
 
-[...]
 typedef struct elf64_shdr {
   Elf64_Word sh_name;		/* Section name, index in string table */
   Elf64_Word sh_type;		/* Type of section */
@@ -13,7 +12,7 @@ typedef struct elf64_shdr {
   Elf64_Xword sh_addralign;	/* Section alignment */
   Elf64_Xword sh_entsize;	/* Entry size if section holds table */
 } Elf64_Shdr;
-[...]
+
 
     sh_name: An offset to a string in the .shstrtab section that represents the name of this section
     sh_link: Points to another section
