@@ -1,0 +1,140 @@
+A section header is defined as follows:
+
+[...]
+typedef struct elf64_shdr {
+  Elf64_Word sh_name;		/* Section name, index in string table */
+  Elf64_Word sh_type;		/* Type of section */
+  Elf64_Xword sh_flags;		/* Miscellaneous section attributes */
+  Elf64_Addr sh_addr;		/* Section virtual addr at execution */
+  Elf64_Off sh_offset;		/* Section file offset */
+  Elf64_Xword sh_size;		/* Size of section in bytes */
+  Elf64_Word sh_link;		/* Index of another section */
+  Elf64_Word sh_info;		/* Additional section information */
+  Elf64_Xword sh_addralign;	/* Section alignment */
+  Elf64_Xword sh_entsize;	/* Entry size if section holds table */
+} Elf64_Shdr;
+[...]
+
+    sh_name: An offset to a string in the .shstrtab section that represents the name of this section
+    sh_link: Points to another section
+    sh_info: Contains extra information about the section. Interpretation depends on section type
+    sh_entsize: Contains the size of each entry, for sections that contain fixed-size entries. Otherwise, this field contains zero.
+
+e_ident[EI_IDENT]:
+    e_indent[MAG1,..,MAG3] byte 0-3 -> 7f 45 4c 46
+    e_indent[EI_CLASS] byte 4 -> 02
+    e_indent[EI_DATA] byte 5 -> 01
+    e_indent[EI_VERSION] byte 6 -> 01
+    e_indent[EI_OSABI] byte 7 -> 00
+    e_indent[EI_ABIVERSION] byte 8 -> 00
+    e_indent[EI_PAD] byte 9-15 -> 00 00 00 00 00 00 00 00
+e_type: byte 16-17 -> 03 00
+e_machine: byte 18-19 -> 3e 00
+e_version: byte 20-23 -> 01 00 00 00
+e_entry: byte 24-31 -> 50 58 00 00 00 00 00 00
+e_phoff: byte byte 32-39 -> 40 00 00 00 00 00 00 00
+e_shoff: byte 40-47 ->  a0 03 02 00 00 00 00 00
+e_flags: byte 48-51 -> 00 00 00 00
+e_ehsize: byte 52-53 -> 40 00
+e_phentsize: byte 54-55 -> 38 00
+e_phnum: byte: byte 56-57 -> 09 00
+e_shentsize: byte 58-59 -> 40 00  
+e_shnum: byte 60-61 -> 1c 00
+e_shstrndx: byte 63-63 -> 1b 00
+
+
+
+
+
+// ELF HEADER
+
+e_ident_EI_MAG      7f 45 4c 46 (valid ELF magic)
+e_ident_EI_CLASS    64-bit
+e_ident_EI_DATA     little-endian
+e_ident_EI_VERSION  1 (current version)
+e_ident_EI_OSABI    System V
+e_ident_EI_PAD      0x0
+e_type              ET_DYN (Shared object file)
+e_machine           x86-64
+e_version           0x1
+e_entry             0x5850
+e_phoff             0x40 (64 bytes into this file)
+e_shoff             0x203a0 (132000 bytes into this file)
+e_flags             0x0
+e_ehsize            0x40 (64 bytes)
+e_phentsize         0x38 (56 bytes)
+e_phnum             0x9 (9)
+e_shentsize         0x40 (64 bytes)
+e_shnum             0x1c (28)
+e_shstridx          0x1b (27)
+
+
+$ hd -n 56 -s 64 /bin/ls
+00000040  06 00 00 00 05 00 00 00  40 00 00 00 00 00 00 00  |........@.......|
+00000050  40 00 00 00 00 00 00 00  40 00 00 00 00 00 00 00  |@.......@.......|
+00000060  f8 01 00 00 00 00 00 00  f8 01 00 00 00 00 00 00  |................|
+00000070  08 00 00 00 00 00 00 00                           |........|
+00000078
+
+So let’s identify the values again!
+
+p_type: bytes 0-3 -> 06 00 00 00
+p_flags: bytes 4-7 -> 05 00 00 00
+p_offset: bytes 8-15 -> 40 00 00 00 00 00 00 00
+p_vaddr: bytes 16-23 -> 40 00 00 00 00 00 00 00
+p_paddr: bytes 24-31 -> 40 00 00 00 00 00 00 00
+p_filesz: bytes 32-39 -> f8 01 00 00 00 00 00 00
+p_memsz: bytes 40-47 -> f8 01 00 00 00 00 00 00
+p_align: bytes 48-55 -> 08 00 00 00 00 00 00 00
+
+        FOUND PROGRAM HEADER
+
+p_type    PT_PHDR
+p_offset  0x40 (64 bytes into this file)
+p_vaddr   0x40
+p_paddr   0x40
+p_filesz  0x1f8 (504 bytes)
+p_memsz   0x1f8 (504 bytes)
+p_flags   read, execute
+p_align   0x8
+
+// SECTION HEADER
+
+$ hd -s 132064 -n 64 /bin/ls
+000203e0  0b 00 00 00 01 00 00 00  02 00 00 00 00 00 00 00  |................|
+000203f0  38 02 00 00 00 00 00 00  38 02 00 00 00 00 00 00  |8.......8.......|
+00020400  1c 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+00020410  01 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+00020420
+
+    Note: The ELF header gives us all the tools to calculate the memory ranges for each section header again:
+    e_shoff * (e_shentsize + e_shnum), where e_shnum is the variable part to access each section header!
+    Now back to the same old game!
+
+sh_name: bytes 0-3 -> 0b 00 00 00
+sh_type: bytes 4-7 -> 01 00 00 00
+sh_flags: bytes 8-15 -> 02 00 00 00 00 00 00 00
+sh_addr: bytes 16-23 -> 38 02 00 00 00 00 00 00
+sh_offset: bytes 24-31 -> 38 02 00 00 00 00 00 00
+sh_size: bytes 32-39 -> 1c 00 00 00 00 00 00 00
+sh_link: bytes 40-43 -> 00 00 00 00
+sh_info: bytes 44-47 -> 00 00 00 00
+sh_addralign: bytes 48-55 -> 01 00 00 00 00 00 00 00
+sh_entsize: bytes 56-53 -> 00 00 00 00 00 00 00 00
+
+
+
+ FOUND SECTION HEADER
+
+sh_name       .interp
+sh_type       SHT_PROGBITS (Program data)
+sh_flags      SHF_ALLOC (Occupies memory during execution)
+sh_addr       0x238
+sh_offset     0x238 (568 bytes into this file)
+sh_size       0x1c (28 bytes)
+sh_link       0x0
+sh_info       0x0
+sh_addralign  0x1
+sh_entsize    0x0
+
+
