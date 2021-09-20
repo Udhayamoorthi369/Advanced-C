@@ -18,7 +18,13 @@ typedef struct elf64_shdr {
     sh_name: An offset to a string in the .shstrtab section that represents the name of this section
     sh_link: Points to another section
     sh_info: Contains extra information about the section. Interpretation depends on section type
-    sh_entsize: Contains the size of each entry, for sections that contain fixed-size entries. Otherwise, this field contains zero.
+    sh_entsize: Contains the size of each entry, for sections that contain fixed-size entries. Otherwise, this field contains zero
+    
+    $ hd -n 64 /bin/ls
+00000000  7f 45 4c 46 02 01 01 00  00 00 00 00 00 00 00 00  |.ELF............|
+00000010  03 00 3e 00 01 00 00 00  50 58 00 00 00 00 00 00  |..>.....PX......|
+00000020  40 00 00 00 00 00 00 00  a0 03 02 00 00 00 00 00  |@...............|
+00000030  00 00 00 00 40 00 38 00  09 00 40 00 1c 00 1b 00  |....@.8...@.....|
 
 e_ident[EI_IDENT]:
     e_indent[MAG1,..,MAG3] byte 0-3 -> 7f 45 4c 46
