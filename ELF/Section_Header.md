@@ -26,11 +26,11 @@ You'll notice that the statements at 5fe, 605, 60c, 613 are the same instruction
 ### .RODATA SECTION
 This section stores all the string literals defined in the program. Look at the source [main.c], the string used in the printf() is a string literal. To analyse any section for strings we use `-p` option with '**readelf**' which dumps the output content as strings.
 
-```shell
+
 
 ![Se2](https://user-images.githubusercontent.com/89963356/133987317-26f9c593-8b03-4a16-80b2-7a20d470ace3.png)
 
-```
+
 
 
 ### .DATA SECTION
