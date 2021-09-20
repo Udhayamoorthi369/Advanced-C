@@ -18,6 +18,7 @@ Lets see the content of this section. In the raw form, this just contains opcode
 
 
  ![SE1](https://user-images.githubusercontent.com/89963356/133987167-85647575-2b59-46ea-8e4b-237583112507.png
+ 
 You'll notice that the statements at 5fe, 605, 60c, 613 are the same instructions which we wrote in our source file [main.c]. I hope this gives a brief idea and understanding towards the .text section.
 
 **NOTE**: The `-M intel` flag is used with objdump to show the disassembly in **intel syntax** (unlike the default AT&T dialect) which is easier to begin with.
