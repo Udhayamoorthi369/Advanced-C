@@ -16,9 +16,8 @@ This clearly shows that memory is allocated for this section at runtime i.e. the
 
 Lets see the content of this section. In the raw form, this just contains opcode/operand bytes which won't make sense to a human eye until we have an `assembly instruction set opcode table` or some tool (a disassembler) to interpret these bytes into CPU instructions. The GNU binutils have a program called `objdump` which can be used to display some information from an ELF binary. This utility has a disassembler which we'll use to disassemble raw bytes of .text section (present in [main] program (compiled from the source [main.c]) into x86_64 Intel CPU instructions. Generate the disassembly by - `objdump -d main`, you'll see various `symbols` (explained later) with their disassembly, scroll down and look for \<main>  symbol, this is the main() described in the file [.c] and look at the source code [sd.c] and then the instructions constituting \<main> carefully.
 
-```shell
+
  ![SE1](https://user-images.githubusercontent.com/89963356/133987167-85647575-2b59-46ea-8e4b-237583112507.png
-```
 You'll notice that the statements at 5fe, 605, 60c, 613 are the same instructions which we wrote in our source file [main.c]. I hope this gives a brief idea and understanding towards the .text section.
 
 **NOTE**: The `-M intel` flag is used with objdump to show the disassembly in **intel syntax** (unlike the default AT&T dialect) which is easier to begin with.
