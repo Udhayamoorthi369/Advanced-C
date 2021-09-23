@@ -1,6 +1,7 @@
 /* design linked list using c
 Date : 23-09-2021
-Author Udhayamoorthi
+Author Udhayamoorthi 
+*/
 
 typedef struct {
     int length;
