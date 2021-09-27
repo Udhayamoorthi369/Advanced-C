@@ -1,0 +1,21 @@
+     1                                  section .text
+     2                                  
+     3                                  global _start
+     4                                  
+     5                                  section .data
+     6 00000000 68656C6C6F20556468-     msg db 'hello Udhay',0xa
+     7 00000009 61790A             
+     8                                  len equ $ -msg
+     9                                  
+    10                                  section .text
+    11                                  _start:
+    12                                  
+    13 00000000 BA0C000000              mov edx,len
+    14 00000005 B9[00000000]            mov ecx,msg
+    15 0000000A BB01000000              mov ebx,1
+    16 0000000F B804000000              mov eax,4
+    17 00000014 CD80                    int 0x80
+    18 00000016 BB00000000              mov ebx,0
+    19 0000001B B801000000              mov eax,1
+    20 00000020 CD80                    int 0x80
+    21                                  
