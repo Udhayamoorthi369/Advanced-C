@@ -127,11 +127,13 @@ Equivalent to >> in C. i.e. unsigned division by a power of 2.
 Example: Arithmetic Shift Right by 4, positive value.
 
 * ASR shifting in zero diagram.
+
 ![barrel-asr0](https://user-images.githubusercontent.com/89963356/135197454-1be02dda-ec75-4978-961f-eed3725bc52f.png)
 
 Example: Arithmetic Shift Right by 4, negative value.
 
 * ASR shifting in one diagram.
+
 ![barrel-asr1](https://user-images.githubusercontent.com/89963356/135197499-be3b61a8-73a5-4ead-88ca-f6eb93b030f9.png)
 
 Equivalent to >> in C. i.e. signed division by a power of 2.
