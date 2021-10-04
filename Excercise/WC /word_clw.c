@@ -28,6 +28,7 @@ int w=0;
 int paramcnt;
   //printf("Enter a file name: ");
 // scanf("%s", file_name);
+/* Check words */
 void cword()
 {
 char str[50];
@@ -53,7 +54,7 @@ l++;
 printf("no of words = %d\n",w);
 
 }
-
+/*Check the lines*/
 void l_char()
 {
 char str[50];
@@ -76,6 +77,7 @@ l++;
 printf("no of lines = %d\n",l);
 
 }
+ /*check the char*/
 void c_char()
 {
 char str[50];
@@ -96,30 +98,39 @@ printf("no of char = %d\n",c);
 
 }
 int i;
+  /*get commandline option information*/
 while ((ch=getopt(argc,argv,"clw"))!=-1)
+/*!check for option passed*/
 {
+  /*! option c passed */
 switch(ch)
 {
 case 'c':
 {
+  /*! set option c flag*/
 c=1;
 c_char();
 
 }
 break;
+    /*!check for option l passed*/
 case 'l':
+     /*! set option l flag*/
 {
 l=1;
 l_char();
 }
 break;
+     /*!check for option w passed*/
 case 'w':
 {
+   /*! set option w flag*/
 w=1;
 cword();
  
 }
 break;
+     /*!check for option ? passed*/
 case '?':
 {
 usage(argv[0]);
