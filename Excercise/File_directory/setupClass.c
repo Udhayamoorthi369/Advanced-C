@@ -11,7 +11,7 @@ void create_struct(char *dir,mode_t mode)
 char tmp[512];
 size_t length;
 char *p;
-//snprintf(tmp, sizeof(tmp),"%s",dir);
+
 snprintf(tmp, sizeof(tmp),"%s",dir);    
 
 tmp[sizeof(tmp)-1]=='\0';  
@@ -86,20 +86,3 @@ create_struct(buff,0755);
 }
 return 0;
 }
-/*   static void _mkdir(const char *dir) {
-            char tmp[256];
-            char *p = NULL;
-            size_t len;
-     
-            snprintf(tmp, sizeof(tmp),"%s",dir);
-            len = strlen(tmp);
-            if(tmp[len - 1] == '/')
-                    tmp[len - 1] = 0;
-            for(p = tmp + 1; *p; p++)
-                    if(*p == '/') {
-                            *p = 0;
-                            mkdir(tmp, S_IRWXU);
-                            *p = '/';
-                    }
-            mkdir(tmp, S_IRWXU);
-    }*/
