@@ -1,6 +1,6 @@
 
 
-### 1. How do you execute the vulnerable program with AFL? what is the fuzzing result? List neccssary command you use.ALso show a Screeshot of AFL result with timestamp.
+### 1. How do you execute the vulnerable program with AFL? what is the fuzzing result? List neccssary command you use. Also show a Screeshot of AFL result with timestamp.
 
 ![fuzz](https://user-images.githubusercontent.com/89963356/143688444-8357c3b2-5559-4dc2-8014-43e18fdc80ba.png)
 
