@@ -1,6 +1,6 @@
 
 
-1. How do you execute the vulnerable program with AFL? what is the fuzzing result? List neccssary command you use.ALso show a Screeshot of AFL result with timestamp.
+### 1. How do you execute the vulnerable program with AFL? what is the fuzzing result? List neccssary command you use.ALso show a Screeshot of AFL result with timestamp.
 
 ![fuzz](https://user-images.githubusercontent.com/89963356/143688444-8357c3b2-5559-4dc2-8014-43e18fdc80ba.png)
 
@@ -57,7 +57,7 @@ mkdir afl_out
 afl-fuzz -i afl_in -o afl_out -- ./fuzzgoat @@
 ```
 
-4.How does AFL measure the code coverage? List formula if available.
+### 4.How does AFL measure the code coverage? List formula if available.
 
 ## Workflow
 At a high level, the general workflow for afl-cov is:
@@ -152,7 +152,7 @@ In the last few lines above, the locations of the final web coverage and zero co
 
 The code coverage results in `/path/to/afl-fuzz-output/cov/web/lcov-web-final` represent cumulative code coverage across all AFL test cases. This data can then be reviewed to ensure that all expected functions are indeed exercised by AFL - just point a web browser at `/path/to/afl-fuzz-output/cov/web/lcov-web-final/index.html.`
 
-5.what is fork server why does AFL use it during the fuzzing?
+### 5.what is fork server why does AFL use it during the fuzzing?
 
 
 To improve performance, afl-fuzz uses a "fork server", where the fuzzed process
