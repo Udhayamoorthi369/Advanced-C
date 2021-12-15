@@ -9,11 +9,9 @@ Now that gparted is installed on your system, simply run “gparted” in order 
 ```
 $ sudo gparted
 ```
-# My requirement 
+# 1. Create 4 partition with the same size using Gpt
+![gpat](https://user-images.githubusercontent.com/89963356/146141570-ffc5e44a-2d7c-4af1-8227-701670fd47c5.png)
 
-## 1. Create 4 partition with the same size using Gpt
+* first 2 partition should be EXT4 & second 2 partition should be VFAT
 
-# first 2 partition should be EXT4
-
-# second 2 partition should be VFAT
-
+![gapt2 (1)](https://user-images.githubusercontent.com/89963356/146141581-4064feec-c92e-4754-95fd-2acd76e41e6c.png)
